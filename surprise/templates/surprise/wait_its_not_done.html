@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wait... It's Not Done</title>
+    <link rel="stylesheet" href="{% static 'surprise/css/horror.css' %}">
+</head>
+<body class="horror-page">
+    <main class="horror-screen">
+        <div class="horror-vignette"></div>
+        <div class="horror-scratch scratch-one"></div>
+        <div class="horror-scratch scratch-two"></div>
+        <div class="horror-copy" aria-live="polite">
+            <p class="horror-stage stage-one">You thought it was over so soon?</p>
+            <p class="horror-stage stage-two">There is something more.</p>
+            <p class="horror-stage stage-three">Are you ready?</p>
+            <a class="game-button" id="gameButton" href="{% url 'aksgamingimg' %}">Wanna play a game?</a>
+        </div>
+    </main>
+    <script src="{% static 'surprise/js/horror.js' %}"></script>
+</body>
+</html>

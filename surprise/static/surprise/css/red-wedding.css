@@ -1,0 +1,65 @@
+:root {
+    --red: #c43a50;
+    --red-dark: #441d2c;
+    --rose: #f3a9a5;
+    --gold: #f2c96d;
+    --green: #83d59c;
+    --yellow: #f3c762;
+    --cream: #fff4df;
+    --ink: #3e2637;
+}
+
+* { box-sizing: border-box; }
+body.red-wedding-page {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at 12% 15%, rgba(255,255,255,.72), transparent 26%),
+        radial-gradient(circle at 88% 84%, rgba(196,58,80,.18), transparent 31%),
+        linear-gradient(135deg, #ffe8dc, #f3c3bd 50%, #e3a8b0);
+}
+
+.wedding-game { position: relative; width: min(1120px, 94vw); margin: 0 auto; padding: 30px 0 36px; }
+.wedding-header { text-align: center; }
+.wedding-eyebrow { margin: 0 0 5px; color: var(--red); font: 800 11px Arial, sans-serif; letter-spacing: 4px; text-transform: uppercase; }
+.wedding-header h1 { margin: 0; color: var(--red-dark); font-size: clamp(40px, 6vw, 72px); line-height: 1; }
+.wedding-header p:last-child { margin: 12px 0 22px; color: #714d5b; font: 14px Arial, sans-serif; }
+
+.wedding-layout { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(190px, .55fr) minmax(320px, 1.2fr); align-items: center; gap: 25px; }
+.woman-stage, .machine-panel, .memory-panel { position: relative; border: 1px solid rgba(255,255,255,.72); border-radius: 20px; background: rgba(255,248,239,.58); box-shadow: 0 18px 35px rgba(111,42,63,.13); }
+.woman-stage { min-height: 430px; display: grid; place-items: end center; overflow: hidden; }
+.woman { position: relative; width: 180px; height: 370px; }
+.hair { position: absolute; left: 19px; top: 23px; width: 142px; height: 175px; border-radius: 48% 48% 40% 40%; background: #392735; box-shadow: -19px 27px 0 -4px #392735, 19px 35px 0 -3px #392735, -23px 83px 0 -5px #392735, 24px 90px 0 -4px #392735, 0 20px 0 8px #523140; transition: all 1.2s ease; z-index: 2; }
+.face { position: absolute; left: 43px; top: 52px; width: 94px; height: 120px; border-radius: 46% 46% 48% 48%; background: #d99476; z-index: 3; }
+.eye { position: absolute; top: 52px; width: 8px; height: 11px; border-radius: 50%; background: #392735; }.eye.left { left: 25px; }.eye.right { right: 25px; }
+.nose { position: absolute; left: 44px; top: 58px; width: 8px; height: 20px; border-right: 2px solid #a85e5c; border-radius: 50%; }
+.smile { position: absolute; left: 30px; top: 84px; width: 35px; height: 15px; border-bottom: 3px solid #9e4657; border-radius: 0 0 50% 50%; }
+.neck { position: absolute; left: 72px; top: 157px; width: 36px; height: 54px; background: #d99476; z-index: 1; }
+.dress { position: absolute; left: 18px; top: 184px; width: 145px; height: 180px; border-radius: 58px 58px 15px 15px; background: linear-gradient(145deg, #b92f4b, #681e3d); box-shadow: inset 18px 0 rgba(255,255,255,.1); }
+.woman.straight .hair { left: 31px; width: 118px; height: 180px; border-radius: 44% 44% 20% 20%; box-shadow: 0 16px 0 5px #392735; }
+.woman.hair-gone .hair { opacity: .12; transform: translateY(-18px) scale(.7); }
+.woman-status { position: absolute; bottom: 15px; margin: 0; color: #805567; font: 600 12px Arial, sans-serif; }
+.steam { position: absolute; top: 55px; right: 24px; opacity: .5; }.steam span { display: block; width: 3px; height: 32px; margin: 8px; border-radius: 4px; background: #fff; transform: rotate(18deg); animation: steam 2s ease-in-out infinite; }.steam span:nth-child(2) { animation-delay: .4s; }.steam span:nth-child(3) { animation-delay: .8s; }
+
+.machine-panel { padding: 22px 18px; }
+.panel-heading, .memory-heading, .meter-labels, .meter-scale { display: flex; justify-content: space-between; align-items: center; font: 800 11px Arial, sans-serif; letter-spacing: 1px; }
+.panel-heading b { color: var(--green); }.lever-machine { position: relative; height: 170px; margin: 18px auto; width: 70px; }
+.lever-track { position: absolute; left: 28px; top: 0; bottom: 0; width: 14px; border-radius: 10px; background: #b7aaa7; box-shadow: inset 0 2px 5px rgba(0,0,0,.18); }
+.zone-time { position: absolute; left: 25px; width: 55px; color: #775866; font: 700 9px Arial, sans-serif; letter-spacing: 0; transform: translateY(-50%); }
+.green-time { top: 81%; color: #4d9963; }
+.yellow-time { top: 46%; color: #ad8125; }
+.red-time { top: 13%; color: #b43b4c; }
+#lever { position: absolute; left: -47px; top: 78px; width: 170px; height: 30px; transform: rotate(-90deg); appearance: none; background: transparent; cursor: grab; }
+#lever::-webkit-slider-thumb { appearance: none; width: 27px; height: 27px; border: 4px solid #fff4df; border-radius: 50%; background: var(--red); box-shadow: 0 3px 8px rgba(0,0,0,.3); }
+#lever::-moz-range-thumb { width: 20px; height: 20px; border: 4px solid #fff4df; border-radius: 50%; background: var(--red); }
+.meter-labels { margin-top: 8px; }.meter-labels b { color: var(--green); font-size: 17px; }.hair-meter { height: 14px; margin: 9px 0 5px; overflow: hidden; border-radius: 99px; background: linear-gradient(to right, var(--red) 0 6%, var(--yellow) 6% 30%, var(--green) 30% 100%); }.hair-meter span { display: block; width: 100%; height: 100%; border-radius: inherit; background: rgba(255,255,255,.72); transform-origin: right; }.meter-scale { color: #92727a; font-size: 8px; }.meter-scale span:last-child { color: #559d6b; }
+.zone-spent { display: grid; gap: 4px; margin-top: 13px; color: #896b76; font: 700 9px Arial, sans-serif; letter-spacing: .5px; }.zone-spent span { display: flex; justify-content: space-between; }.zone-spent span:nth-child(1) b { color: #559d6b; }.zone-spent span:nth-child(2) b { color: #b88925; }.zone-spent span:nth-child(3) b { color: #bf394c; }
+
+.memory-panel { padding: 18px; }.memory-heading { margin-bottom: 13px; color: #6b4556; }.memory-heading b { color: var(--red); }.memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }.memory-card { aspect-ratio: 1; border: 0; border-radius: 10px; color: transparent; background: linear-gradient(135deg, #7a2948, #3e203e); box-shadow: inset 0 0 0 2px rgba(255,255,255,.12), 0 5px 8px rgba(103,36,63,.18); cursor: pointer; font-size: clamp(23px, 4vw, 36px); transition: transform .2s ease, background .2s ease; }.memory-card:hover { transform: translateY(-2px); }.memory-card.flipped, .memory-card.matched { color: var(--ink); background: #fff2d4; }.memory-card.matched { box-shadow: inset 0 0 0 3px var(--green); cursor: default; }.game-status { min-height: 18px; margin: 14px 0 0; color: #805567; font: 12px Arial, sans-serif; text-align: center; }
+
+.end-message { position: fixed; inset: 0; display: grid; place-content: center; justify-items: center; gap: 12px; background: rgba(48,12,28,.78); z-index: 10; }.end-message[hidden] { display: none; }.end-message strong { color: #fff2d4; font-size: 48px; }.end-message span { color: #f0cbd1; font: 14px Arial, sans-serif; }.end-message button { margin-top: 8px; padding: 12px 21px; border: 0; border-radius: 999px; color: white; background: var(--red); cursor: pointer; font-weight: 800; }
+@keyframes steam { 0%, 100% { opacity: .2; transform: translateY(5px) rotate(18deg); } 50% { opacity: .8; transform: translateY(-12px) rotate(-18deg); } }
+@media (max-width: 800px) { .wedding-layout { grid-template-columns: 1fr 1fr; }.woman-stage { grid-row: span 2; min-height: 470px; }.memory-panel { grid-column: span 1; } }
+@media (max-width: 560px) { .wedding-game { padding-top: 20px; }.wedding-header p:last-child { margin-bottom: 14px; }.wedding-layout { grid-template-columns: 1fr; gap: 14px; }.woman-stage { min-height: 290px; grid-row: auto; }.woman { transform: scale(.65); transform-origin: bottom center; height: 250px; margin-top: -40px; }.machine-panel { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }.lever-machine { grid-row: span 2; }.memory-panel { grid-column: auto; } }

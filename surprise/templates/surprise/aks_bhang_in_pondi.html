@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pondicherry, Later</title>
+    <link rel="stylesheet" href="{% static 'surprise/css/pondi.css' %}">
+</head>
+<body class="pondi-page">
+    <main class="pondi-game" id="pondiGame">
+        <canvas id="pondiCanvas" aria-label="First-person Pondicherry bus journey"></canvas>
+        <div class="control-help">WASD / arrows move &nbsp; Q / E turn &nbsp; R turn around</div>
+        <div class="pondi-controls" aria-label="Phone movement controls">
+            <button type="button" data-phone-control="forward" aria-label="Move forward">&#9650;</button>
+            <button type="button" data-phone-control="left" aria-label="Move left">&#9664;</button>
+            <button type="button" data-phone-control="back" aria-label="Move backward">&#9660;</button>
+            <button type="button" data-phone-control="right" aria-label="Move right">&#9654;</button>
+            <button type="button" data-phone-turn="left" aria-label="Turn left">Q</button>
+            <button type="button" data-phone-turn="back" aria-label="Turn around">R</button>
+            <button type="button" data-phone-turn="right" aria-label="Turn right">E</button>
+        </div>
+        <div class="door-compass" id="doorCompass" hidden aria-live="polite">
+            <span class="compass-label">DOOR</span>
+            <span class="compass-arrow" id="compassArrow">&#8593;</span>
+            <b id="compassText">FRONT</b>
+        </div>
+        <div class="story" id="story" aria-live="polite">
+            <p class="story-line line-one">You are on a trip in Pondicherry.<br>The bhang has made your mind feel high and hazy.</p>
+            <p class="story-line line-two">Now you want to vomit,<br>but the washroom is outside the bus.</p>
+            <p class="story-line line-three">Get out of the bus.<br>Find the washroom. Make it in time.</p>
+        </div>
+        <div class="finish" id="finish" hidden>
+            <strong>You made it.</strong>
+            <span>The sea air feels a little better now.</span>
+        </div>
+    </main>
+    <script>
+        window.RED_WEDDING_URL = "{% url 'aksredwedding' %}";
+    </script>
+    <script src="{% static 'surprise/js/pondi.js' %}"></script>
+</body>
+</html>

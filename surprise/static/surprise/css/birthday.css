@@ -1,0 +1,282 @@
+:root {
+    --berry: #8b3156;
+    --berry-dark: #4e203e;
+    --cream: #fff8ed;
+    --peach: #ffc98f;
+    --cake: #f28e84;
+    --cake-dark: #d96672;
+    --gold: #ffc94f;
+    --ink: #40253a;
+}
+
+* { box-sizing: border-box; }
+
+body.birthday-page {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.75), transparent 25%),
+        radial-gradient(circle at 85% 80%, rgba(255,199,127,.35), transparent 28%),
+        linear-gradient(135deg, #ffe3d1, #f7bad0 52%, #cbb3dd);
+}
+
+.wish-shell {
+    width: min(1050px, 94vw);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 48px 20px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wish-heading { text-align: center; position: relative; z-index: 2; }
+.wish-eyebrow {
+    margin: 0 0 8px;
+    color: var(--berry);
+    font: 700 12px/1.2 Arial, sans-serif;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.wish-heading h1 {
+    margin: 0;
+    color: var(--berry-dark);
+    font-size: clamp(48px, 8vw, 88px);
+    line-height: .95;
+}
+
+.wish-subtitle {
+    margin: 14px 0 0;
+    font: 16px/1.5 Arial, sans-serif;
+    color: #704f66;
+}
+
+.birthday-scene {
+    position: relative;
+    width: min(820px, 100%);
+    height: 480px;
+    margin-top: 24px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,.8);
+    border-radius: 38px;
+    background: rgba(255,248,237,.58);
+    box-shadow: 0 24px 55px rgba(92,39,65,.18), inset 0 -24px 0 rgba(255,255,255,.22);
+}
+
+.birthday-scene::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 44px;
+    height: 2px;
+    background: rgba(139,49,86,.16);
+}
+
+.confetti {
+    position: absolute;
+    width: 12px;
+    height: 30px;
+    border-radius: 8px;
+    transform: rotate(28deg);
+    opacity: .8;
+}
+
+.confetti-one { top: 68px; left: 13%; background: var(--gold); }
+.confetti-two { top: 120px; right: 15%; background: #76b9a7; transform: rotate(-35deg); }
+.confetti-three { top: 210px; left: 8%; background: #d96672; transform: rotate(55deg); }
+
+.portrait {
+    position: absolute;
+    top: 54px;
+    right: 14%;
+    width: 116px;
+    height: 132px;
+    border-radius: 48% 48% 45% 45%;
+    background: #d99570;
+    box-shadow: 0 14px 20px rgba(103,49,45,.18);
+    z-index: 2;
+}
+
+.hair {
+    position: absolute;
+    inset: -14px -8px auto;
+    height: 62px;
+    border-radius: 58% 58% 28% 28%;
+    background: #4f2d32;
+}
+
+.ear { position: absolute; top: 52px; width: 18px; height: 30px; border-radius: 50%; background: #c78367; }
+.ear-left { left: -11px; }
+.ear-right { right: -11px; }
+.eye { position: absolute; top: 66px; width: 10px; height: 13px; border-radius: 50%; background: var(--ink); }
+.eye-left { left: 30px; }
+.eye-right { right: 30px; }
+.nose { position: absolute; left: 53px; top: 76px; width: 10px; height: 20px; border-right: 2px solid #a85f57; border-radius: 50%; }
+.mouth { position: absolute; left: 38px; top: 102px; width: 40px; height: 18px; border-bottom: 3px solid #8f3d54; border-radius: 0 0 50% 50%; }
+
+.portrait .wind { position: absolute; left: -142px; top: 92px; bottom: auto; width: 130px; }
+
+.cake-wrap {
+    position: absolute;
+    left: 50%;
+    bottom: 44px;
+    width: min(470px, 72%);
+    height: 245px;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.plate {
+    position: absolute;
+    left: -8%;
+    bottom: 0;
+    width: 116%;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 7px 0 #e6a8b2;
+}
+
+.cake {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-radius: 24px 24px 12px 12px;
+    overflow: hidden;
+    box-shadow: inset 0 -10px rgba(181,67,83,.15), inset 0 8px rgba(255,255,255,.2), 0 10px 15px rgba(113,48,58,.16);
+}
+
+.cake-bottom { bottom: 18px; height: 82px; background: linear-gradient(100deg, #c95568, #f0837d 45%, #c95568); }
+.cake-middle { bottom: 88px; height: 66px; width: 92%; left: 4%; background: linear-gradient(100deg, #e77c78, #ffb098 48%, #e77c78); }
+.cake-top { bottom: 143px; height: 48px; width: 84%; left: 8%; background: linear-gradient(105deg, #f3a082, #ffd0aa 45%, #f19a80); }
+.cake-middle::before, .cake-bottom::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 12px;
+    height: 9px;
+    background: rgba(255,236,196,.78);
+    box-shadow: 0 30px rgba(174,61,75,.14);
+}
+.cake-bottom::after {
+    content: "";
+    position: absolute;
+    left: 9%;
+    right: 9%;
+    bottom: 15px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,196,152,.34);
+}
+.cake-top::before, .cake-top::after {
+    content: "";
+    position: absolute;
+    top: 31px;
+    width: 20px;
+    height: 24px;
+    border-radius: 0 0 14px 14px;
+    background: #fff0d3;
+}
+.cake-top::before { left: 24%; }
+.cake-top::after { right: 20%; height: 17px; }
+
+.inscription {
+    position: absolute;
+    left: 16%;
+    bottom: 38px;
+    width: 68%;
+    color: #fff1d5;
+    text-align: center;
+    text-shadow: 0 2px rgba(133,45,65,.25);
+    z-index: 4;
+}
+.inscription span { display: block; font: 18px/1 "Brush Script MT", "Segoe Script", cursive; }
+.inscription strong { display: block; margin-top: 3px; font: 700 20px/1 Georgia, serif; letter-spacing: 2px; }
+
+.candles {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    z-index: 2;
+}
+
+.candle-digit {
+    position: relative;
+    min-width: 70px;
+    color: #fff8dd;
+    font: 900 74px/.8 Arial, sans-serif;
+    text-align: center;
+    text-shadow: 0 3px 0 #d99032, 0 0 18px rgba(255,204,74,.8);
+    transition: transform .8s ease, opacity .8s ease, width .8s ease, min-width .8s ease;
+}
+
+.candle-digit::after {
+    content: "";
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: -8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d99032;
+}
+
+.flame {
+    position: absolute;
+    left: 50%;
+    top: -33px;
+    width: 19px;
+    height: 30px;
+    transform: translateX(-50%) rotate(8deg);
+    border-radius: 55% 45% 55% 45%;
+    background: linear-gradient(#fffbd4 10%, #ffd34e 50%, #ef7b35 100%);
+    box-shadow: 0 0 18px 8px rgba(255,185,43,.48);
+    animation: flame-flicker .8s ease-in-out infinite alternate;
+}
+
+.is-blowing .flame { animation: flame-out 1s ease-out forwards; }
+.flames-out .flame { opacity: 0; animation: none; }
+.candle-digit.vanish { opacity: 0; transform: translateY(55px) scale(.4) rotate(18deg); min-width: 0; width: 0; overflow: hidden; }
+.candles.final-number { justify-content: center; gap: 0; }
+.candles.final-number .candle-digit { min-width: 52px; margin: 0 -14px; }
+
+.wind span { display: block; height: 3px; margin: 10px 0; border-radius: 4px; background: #79a9b2; transform: translateX(-60px); }
+.is-blowing .wind { opacity: 1; }
+.is-blowing .wind span { animation: wind-sweep 1s ease-in-out infinite; }
+.is-blowing .wind span:nth-child(2) { animation-delay: .12s; }
+.is-blowing .wind span:nth-child(3) { animation-delay: .24s; }
+
+.wish-actions { position: relative; z-index: 5; text-align: center; }
+.wish-status { margin: 18px 0 12px; color: #704f66; font: 600 14px Arial, sans-serif; }
+.mic-panel { display: flex; justify-content: center; align-items: center; gap: 13px; min-height: 30px; }
+.mic-icon { position: relative; width: 16px; height: 24px; border: 3px solid var(--berry); border-radius: 10px; }
+.mic-icon::before { content: ""; position: absolute; left: 50%; top: 21px; width: 22px; height: 10px; border: 3px solid var(--berry); border-top: 0; border-radius: 0 0 14px 14px; transform: translateX(-50%); }
+.mic-icon::after { content: ""; position: absolute; left: 50%; top: 31px; width: 3px; height: 7px; background: var(--berry); transform: translateX(-50%); }
+.sound-meter { display: flex; align-items: center; gap: 3px; height: 32px; }
+.sound-meter span { width: 4px; height: 8px; border-radius: 4px; background: #d9a7b6; transition: height .08s ease, background .08s ease; }
+.sound-meter span:nth-child(3n) { height: 14px; }
+.sound-meter span.active { height: 27px; background: var(--berry); }
+
+@keyframes flame-flicker { from { transform: translateX(-50%) rotate(-5deg) scale(.92); } to { transform: translateX(-50%) rotate(7deg) scale(1.08); } }
+@keyframes flame-out { 0% { opacity: 1; transform: translateX(-50%) scale(1); } 70% { opacity: .5; transform: translateX(-25%) scale(.65) skewX(-20deg); } 100% { opacity: 0; transform: translateX(35%) scale(.15) skewX(-30deg); } }
+@keyframes wind-sweep { 0% { transform: translateX(-60px) scaleX(.55); opacity: 0; } 35%, 70% { transform: translateX(0) scaleX(1); opacity: .85; } 100% { transform: translateX(55px) scaleX(.45); opacity: 0; } }
+
+@media (max-width: 650px) {
+    .wish-shell { padding: 30px 12px 24px; }
+    .birthday-scene { height: 455px; border-radius: 28px; }
+    .portrait { top: 36px; right: 9%; transform: scale(.78); transform-origin: top right; }
+    .cake-wrap { width: 92%; bottom: 42px; }
+    .candle-digit { min-width: 50px; font-size: 58px; }
+    .portrait .wind { left: -115px; top: 95px; transform: scale(.8); transform-origin: right center; }
+    .inscription span { font-size: 15px; }
+    .inscription strong { font-size: 17px; }
+}

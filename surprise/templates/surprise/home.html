@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Surprise 🎁</title>
+    <link rel="stylesheet" href="{% static 'surprise/css/style.css' %}">
+</head>
+<body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="page">
+        <section class="card" id="gameCard">
+            <div class="sparkles">✦ ✧ ✦</div>
+            <p class="eyebrow">A tiny question...</p>
+            <h1>Are You Ready<br><span>For A Surprise?</span></h1>
+            <p class="subtitle">There is just one little thing you need to do first.</p>
+
+            <div class="arena" id="arena">
+                <div class="instruction" id="instruction">
+                    <span>Arrange the four sticks into a closed shape.</span>
+                    <small>Then the buttons will stop running away. 👀</small>
+                </div>
+
+                <div class="stick" data-stick="0"></div>
+                <div class="stick" data-stick="1"></div>
+                <div class="stick" data-stick="2"></div>
+                <div class="stick" data-stick="3"></div>
+
+                <div class="choice-area" id="choiceArea">
+                    <button class="choice yes" id="yesBtn" type="button">YES 💖</button>
+                    <button class="choice no" id="noBtn" type="button">NO 🙈</button>
+                </div>
+
+                <div class="locked-message" id="lockedMessage">
+                    ✨ The surprise is waiting... ✨
+                </div>
+            </div>
+
+            <div class="status" id="status">The four sticks are the key.</div>
+        </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        window.RECORD_CHOICE_URL = "{% url 'record_choice' %}";
+        window.BIRTHDAY_WISH_URL = "{% url 'birthday_wish' %}";
+    </script>
+    <script src="{% static 'surprise/js/game.js' %}"></script>
+</body>
+</html>

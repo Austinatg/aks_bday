@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Surfing at Varkala</title>
+    <link rel="stylesheet" href="{% static 'surprise/css/surfing.css' %}">
+</head>
+<body class="surfing-page">
+    <main class="surfing-game" id="surfingGame">
+        <canvas id="surfCanvas" aria-label="Endless surfing game"></canvas>
+        <div class="surf-hud">
+            <span>VARKALA</span>
+            <strong id="score">0 m</strong>
+            <span class="speed-label">SPEED <b id="speed">1.0</b></span>
+        </div>
+        <div class="game-message start-message" id="startMessage">
+            <strong>Varkala is waiting</strong>
+            <span>Ready to ride the Arabian Sea?</span>
+            <button id="startButton" type="button">Start with Varkala</button>
+        </div>
+        <div class="game-message" id="gameMessage" hidden>
+            <strong id="messageTitle">Wipeout</strong>
+            <span id="messageText">The sea is still waiting.</span>
+            <button id="restartButton" type="button">Ride again</button>
+        </div>
+        <div class="surf-controls" aria-label="Surfing controls">
+            <button class="control steer-left" data-control="left" type="button" aria-label="Move left">&#8592;</button>
+            <button class="control brake" data-control="brake" type="button" aria-label="Brake">&#9664;&#9664;</button>
+            <button class="control accelerate" data-control="accelerate" type="button" aria-label="Accelerate">&#9654;&#9654;</button>
+            <button class="control steer-right" data-control="right" type="button" aria-label="Move right">&#8594;</button>
+        </div>
+    </main>
+    <script>
+        window.BHANG_URL = "{% url 'aksbhanginpondi' %}";
+    </script>
+    <script src="{% static 'surprise/js/surfing.js' %}"></script>
+</body>
+</html>

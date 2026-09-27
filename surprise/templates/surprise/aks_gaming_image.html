@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piece It Together</title>
+    <link rel="stylesheet" href="{% static 'surprise/css/jigsaw.css' %}">
+</head>
+<body class="jigsaw-page">
+    <main class="jigsaw-screen" aria-label="Instagram screenshot jigsaw puzzle">
+        <canvas id="puzzleCanvas" aria-label="Draggable jigsaw pieces"></canvas>
+    </main>
+    <script>
+        window.DEFAULT_PUZZLE_IMAGE = "{% static 'surprise/images/image.png' %}";
+        window.SURFING_URL = "{% url 'akssurfingatvarkala' %}";
+    </script>
+    <script src="{% static 'surprise/js/jigsaw.js' %}"></script>
+</body>
+</html>

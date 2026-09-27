@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Birthday Wish</title>
+    <link rel="stylesheet" href="{% static 'surprise/css/birthday.css' %}">
+</head>
+<body class="birthday-page">
+    <main class="wish-shell">
+        <header class="wish-heading">
+            <p class="wish-eyebrow">A little birthday magic</p>
+            <h1>Make a wish</h1>
+            <p class="wish-subtitle">One breath, one bright wish, and a year waiting to begin.</p>
+        </header>
+
+        <section class="birthday-scene" id="birthdayScene" aria-label="Birthday cake and candles">
+            <div class="confetti confetti-one"></div>
+            <div class="confetti confetti-two"></div>
+            <div class="confetti confetti-three"></div>
+
+            <div class="portrait" aria-label="A smiling face">
+                <span class="hair"></span>
+                <span class="ear ear-left"></span>
+                <span class="ear ear-right"></span>
+                <span class="eye eye-left"></span>
+                <span class="eye eye-right"></span>
+                <span class="nose"></span>
+                <span class="mouth"></span>
+                <div class="wind" id="wind" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="cake-wrap">
+                <div class="candles" id="candles" aria-label="The year 2003">
+                    <div class="candle-digit" data-digit="2"><span class="flame"></span><span class="digit">2</span></div>
+                    <div class="candle-digit zero" data-digit="0"><span class="flame"></span><span class="digit">0</span></div>
+                    <div class="candle-digit zero" data-digit="0"><span class="flame"></span><span class="digit">0</span></div>
+                    <div class="candle-digit" data-digit="3"><span class="flame"></span><span class="digit">3</span></div>
+                </div>
+                <div class="cake cake-top"></div>
+                <div class="cake cake-middle"></div>
+                <div class="cake cake-bottom"></div>
+                <div class="inscription"><span>Happy Birthday</span><strong>Akshita</strong></div>
+                <div class="plate"></div>
+            </div>
+        </section>
+
+        <div class="wish-actions">
+            <p class="wish-status" id="wishStatus" aria-live="polite">Listening for your birthday breath...</p>
+            <div class="mic-panel" role="status" aria-label="Microphone sound level">
+                <span class="mic-icon" aria-hidden="true"></span>
+                <div class="sound-meter" id="soundMeter" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        window.WAIT_ITS_NOT_DONE_URL = "{% url 'wait_its_not_done' %}";
+    </script>
+    <script src="{% static 'surprise/js/birthday.js' %}"></script>
+</body>
+</html>

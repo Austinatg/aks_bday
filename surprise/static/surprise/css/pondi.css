@@ -1,0 +1,124 @@
+:root { --night: #08141d; --mist: #9ccfc8; --warm: #e6b27a; }
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body.pondi-page { background: var(--night); color: #eefcf7; font-family: Georgia, "Times New Roman", serif; }
+.pondi-game { position: relative; width: 100%; height: 100%; overflow: hidden; background: #08141d; }
+#pondiCanvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.control-help {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    padding: 7px 12px;
+    border: 1px solid rgba(220,255,240,.18);
+    border-radius: 999px;
+    color: rgba(232,252,244,.72);
+    background: rgba(4,18,25,.38);
+    font: 11px Arial, sans-serif;
+    letter-spacing: .5px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 3;
+}
+.pondi-controls {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    display: grid;
+    grid-template-columns: repeat(4, 44px);
+    gap: 7px;
+    z-index: 7;
+}
+.pondi-controls button {
+    width: 44px;
+    height: 40px;
+    border: 1px solid rgba(220,255,240,.28);
+    border-radius: 11px;
+    color: #effff7;
+    background: rgba(4,24,31,.58);
+    box-shadow: 0 5px 14px rgba(0,0,0,.22);
+    cursor: pointer;
+    font: 700 15px Arial, sans-serif;
+    touch-action: none;
+    backdrop-filter: blur(6px);
+}
+.pondi-controls button:active, .pondi-controls button.active { color: #18352f; background: #b5e3bf; }
+.pondi-controls [data-phone-turn="left"] { grid-column: 1; }
+.pondi-controls [data-phone-turn="back"] { grid-column: 2; }
+.pondi-controls [data-phone-turn="right"] { grid-column: 3; }
+
+.door-compass {
+    position: absolute;
+    top: 58px;
+    right: 18px;
+    display: grid;
+    justify-items: center;
+    gap: 3px;
+    min-width: 76px;
+    padding: 8px 10px;
+    border: 1px solid rgba(220,255,240,.28);
+    border-radius: 12px;
+    color: #effff7;
+    background: rgba(4,24,31,.58);
+    box-shadow: 0 5px 14px rgba(0,0,0,.22);
+    font: 800 10px Arial, sans-serif;
+    z-index: 7;
+    backdrop-filter: blur(6px);
+}
+.door-compass[hidden] { display: none; }
+.compass-label { color: rgba(232,252,244,.65); font-size: 8px; letter-spacing: 2px; }
+.compass-arrow { display: block; color: #b5e3bf; font-size: 29px; line-height: 25px; transform-origin: center; transition: transform .25s ease; }
+.door-compass b { color: #f0d49a; font-size: 9px; letter-spacing: .7px; }
+
+@media (max-width: 700px) {
+    .pondi-controls { display: grid; left: 12px; bottom: 12px; }
+    .pondi-controls button { display: block; }
+}
+
+.story {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 32px;
+    background: rgba(2,8,13,.9);
+    text-align: center;
+    z-index: 5;
+    transition: opacity 1.4s ease;
+}
+.story.hidden { opacity: 0; pointer-events: none; }
+.story-line {
+    position: absolute;
+    max-width: 720px;
+    margin: 0;
+    color: #d8e8df;
+    font-size: clamp(22px, 4vw, 48px);
+    line-height: 1.35;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.story-line.visible { opacity: 1; transform: translateY(0); }
+.story-line.fade-out { opacity: 0; transform: translateY(-18px); }
+.line-two { color: #d9b7a0; }
+.line-three { color: var(--mist); }
+
+.finish {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: grid;
+    gap: 10px;
+    padding: 28px 34px;
+    border: 1px solid rgba(214,255,238,.25);
+    border-radius: 18px;
+    background: rgba(6,27,35,.82);
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+.finish[hidden] { display: none; }
+.finish strong { font-size: clamp(30px, 6vw, 62px); color: var(--mist); }
+.finish span { color: #c0d4cb; font: 14px Arial, sans-serif; }

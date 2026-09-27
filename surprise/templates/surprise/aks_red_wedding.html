@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Red Wedding</title>
+    <link rel="stylesheet" href="{% static 'surprise/css/red-wedding.css' %}">
+</head>
+<body class="red-wedding-page">
+    <main class="wedding-game" id="weddingGame">
+        <header class="wedding-header">
+            <p class="wedding-eyebrow">The final challenge</p>
+            <h1>The Red Wedding</h1>
+            <p>Keep the heat in the green while you remember every pair.</p>
+        </header>
+
+        <section class="wedding-layout">
+            <div class="woman-stage" aria-label="Woman with curly hair">
+                <div class="woman" id="woman">
+                    <div class="hair"></div>
+                    <div class="face"><span class="eye left"></span><span class="eye right"></span><span class="nose"></span><span class="smile"></span></div>
+                    <div class="neck"></div>
+                    <div class="dress"></div>
+                </div>
+                <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
+                <p class="woman-status" id="womanStatus">The curls are holding.</p>
+            </div>
+
+            <div class="machine-panel">
+                <div class="panel-heading"><span>HEAT CONTROL</span><b id="leverState">GREEN</b></div>
+                <div class="lever-machine">
+                    <div class="lever-track">
+                        <span class="green-zone"></span><span class="yellow-zone"></span><span class="red-zone"></span>
+                        <b class="zone-time green-time">49s</b>
+                        <b class="zone-time yellow-time">27s</b>
+                        <b class="zone-time red-time">7s</b>
+                    </div>
+                    <input id="lever" type="range" min="0" max="100" value="72" aria-label="Hair heat lever">
+                </div>
+                <div class="meter-labels"><span>HAIR TIME</span><b id="timer">255s</b></div>
+                <div class="hair-meter"><span id="hairFill"></span></div>
+                <div class="meter-scale"><span>RED</span><span>YELLOW</span><span>GREEN</span></div>
+                <div class="zone-spent" aria-live="polite">
+                    <span>GREEN <b id="greenSpent">0s</b></span>
+                    <span>YELLOW <b id="yellowSpent">0s</b></span>
+                    <span>RED <b id="redSpent">0s</b></span>
+                </div>
+            </div>
+
+            <section class="memory-panel" aria-label="Memory puzzle">
+                <div class="memory-heading"><span>Remember the pairs</span><b id="pairsFound">0 / 8</b></div>
+                <div class="memory-grid" id="memoryGrid"></div>
+                <p class="game-status" id="gameStatus">Find all 8 pairs before the hair is straightened.</p>
+            </section>
+        </section>
+
+        <div class="end-message" id="endMessage" hidden>
+            <strong id="endTitle"></strong>
+            <span id="endText"></span>
+            <button id="playAgain" type="button">Try again</button>
+        </div>
+    </main>
+    <script>
+        window.FINAL_BIRTHDAY_URL = "{% url 'aksfinalbirthday' %}";
+    </script>
+    <script src="{% static 'surprise/js/red-wedding.js' %}"></script>
+</body>
+</html>
